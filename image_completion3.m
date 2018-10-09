@@ -17,12 +17,13 @@ r_index = Index(10);
 X = Tensor(i_index, j_index, k_index);
 X.data = zeros(r_index.cardinality, g_index.cardinality, ...
                b_index.cardinality, i_index.cardinality, ...
-               j_index.cardinality, r_index.cardinality);
+               j_index.cardinality);
+
 for i=1:size(I2_corr,1)
     for j=1:size(I2_corr,2)
         for c=1:3
             rgb_values = I2_corr(i, j, :);
-            X.data( rgb_values(1), rgb_values(2), rgb_values(3), 
+            X.data( rgb_values(1), rgb_values(2), rgb_values(3), i, j ) = 1;
         end
     end
 end

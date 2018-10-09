@@ -29,7 +29,7 @@ pre_process();
 p = [1];
 phi = [1];
 
-factorization_model = {X, {A, B}};
+factorization_model = {X, {A, B, C}};
 
 model = TFModel(factorization_model, p, phi);
 config = TFEngineConfig(model, 2000);
