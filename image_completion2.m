@@ -10,7 +10,7 @@ I2_corr( I2_corr==0 ) = 0.0001;
 i_index = Index(size(I2_corr,1));
 j_index = Index(size(I2_corr,2));
 k_index = Index(size(I2_corr,3));
-r_index = Index(200);
+r_index = Index(500);
 
 
 X = Tensor(i_index, j_index, k_index);
@@ -32,7 +32,7 @@ phi = [1];
 factorization_model = {X, {A, B, C}};
 
 model = TFModel(factorization_model, p, phi);
-config = TFEngineConfig(model, 100);
+config = TFEngineConfig(model, 500);
 engine = TFDefaultEngine(config, 'gtp');
 engine.factorize();
 plot(engine.beta_divergence');
